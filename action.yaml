@@ -1,0 +1,17 @@
+name: "Podcast Generator"
+author: Nisal Renuja 
+description: "Generates a feed for a podcast from a YAML file"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+branding: 
+  icon: "git-branch"
+  color: "red"
+inputs: 
+  email: 
+    description: true
+    default: ${{github.actor }}@localhost
+name: 
+  description: The commitor's name
+  required: true
+  default: ${{github.actor }}
