@@ -1,9 +1,7 @@
-FROM ubuntu:latest
+FROM python:3.10-slim
 
-# Install Python, pip, git, and required dependencies for PyYAML
+# Install git and other dependencies
 RUN apt-get update && apt-get install -y \
-    python3.10 \
-    python3-pip \
     git \
     build-essential \
     libssl-dev \
@@ -11,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     python3-dev
 
 # Install PyYAML using pip
-RUN python3 -m pip install --no-cache-dir PyYAML
+RUN pip install --no-cache-dir PyYAML
 
 # Copy the Python script
 COPY feed.py /usr/bin/feed.py
